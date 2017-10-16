@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+from __future__ import print_function
 import argparse
 import utm
 
@@ -17,11 +18,12 @@ parser_utm.add_argument('zone_number', type=int, help='Zone number of the UTM co
 parser_utm.add_argument('zone_letter', help='Zone letter of the UTM coordinate')
 
 args = parser.parse_args()
+coordinate = None
 
 if all(arg in args for arg in ['easting', 'northing', 'zone_number', 'zone_letter']):
     if args.zone_letter == '':
         parser_utm.print_usage()
-        print "utm-converter utm: error: too few arguments"
+        print("utm-converter utm: error: too few arguments")
         exit()
 
     coordinate = utm.to_latlon(args.easting, args.northing,
@@ -30,4 +32,7 @@ if all(arg in args for arg in ['easting', 'northing', 'zone_number', 'zone_lette
 elif all(arg in args for arg in ['latitude', 'longitude']):
     coordinate = utm.from_latlon(args.latitude, args.longitude)
 
-print ','.join([str(component) for component in coordinate])
+if coordinate is not None:
+    print(','.join([str(component) for component in coordinate]))
+else:
+    parser_utm.print_usage()
