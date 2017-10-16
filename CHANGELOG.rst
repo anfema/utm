@@ -1,6 +1,12 @@
 Changelog
 =========
 
+v0.5.0
+------
+
+* add numpy support to accelerate coordinate conversion
+
+
 v0.4.2
 ------
 
