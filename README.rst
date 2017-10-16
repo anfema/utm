@@ -1,8 +1,6 @@
 utm
 ===
 
-.. image:: https://travis-ci.org/Turbo87/utm.png
-
 .. image:: https://img.shields.io/badge/License-MIT-yellow.svg
    :target: https://github.com/Turbo87/utm/blob/master/LICENSE
 
